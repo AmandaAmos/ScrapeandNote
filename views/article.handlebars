@@ -1,20 +1,20 @@
 <div class="container">
   <div class="row text-center">
-    <div class="col-xs-12">
+    <div class="col l12 m6">
       <h3>"{{data.title}}" Notes</h3>
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col s4">
       <a href="/saved"><button class="waves-effect waves-teal btn-flat">Saved Articles</button></a> 
-      <a href="/"><button style="padding: 6px 12px; float:right;">Home</button></a>
+      <a href="/"><button class="waves-effect waves-teal btn-flat">Home</button></a>
     </div>
   </div>
   <div class="row">
     <div class="col-xs-6">
       <div class="card mt-4">
         <div class="card-body">
-            <form class="clearfix mb-4">
+            <form class="">
               <div class="form-group">
                 <label for="title-note"><h4>Title</h4></label>
                 <input type="text" id="title-note" class="form-control" aria-describedby="example-text" placeholder="Title of note">
@@ -34,7 +34,7 @@
           {{#if data.note}}
             {{#each data.note}}
               <hr>
-              <button data-id={{this._id}} class="delete-note" style="padding: 5px 10px; float:right">Delete</button>
+              <button data-id={{this._id}} class="delete-note" style="float:right">Delete</button>
               <h4><strong>{{this.title}}</strong></h4>
               <h5>{{this.body}}</h5>
               <hr>

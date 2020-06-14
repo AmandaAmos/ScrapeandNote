@@ -4,7 +4,8 @@
   "description": "This is a web based scraping application that allows the user to add their notes to articles scraped from current events of the New York Times website.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",

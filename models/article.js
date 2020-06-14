@@ -5,14 +5,12 @@ let Schema = mongoose.Schema;
 let articleSchema = new Schema({
     title: {
         title: String,
-        required: true
+       // require: true
+       
     },
     link: {
         type: String,
-        required: true
-    },
-    excerpt: {
-        type: String
+       // require: true
     },
     
     note: {
