@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row text-center">
+        <div class="col-xs-12">
+            <h1>Saved Articles</h1>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="row" style="padding-right: 15px;">
+         <div class="col- l12">
+             <a href="/"><button class="waves-effect waves-teal btn-flat">Home</button></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col l12">
+            <div id="articles" style="padding-right: 15px;">
+            {{#each saved}}
+                <button data-id={{this._id}} class="delete-article" style="padding: 3px 6px; float:right;">Delete from Saved</button>
+                <button data-id={{this._id}} class="note-comment" style="padding: 3px 6px; float:right; margin-right:.5%">Article Notes</button>
+                <h4><strong>{{this.title}}</strong></h4>
+                <a href="{{this.link}}">{{this.link}}</a>  
+                <div class="divider"></div>
+            {{/each}}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<div id="container text-center" style="margin: 10px;">
+      <div class="row text-center">
+        <div class="col l12">
+          <h1>Scraped Articles</h1>
+      </div>
+      </div>
+      <div class="row" style="padding-bottom:10px">
+        <div class="col l12">
+          <a href="/saved"><button class="waves-effect waves-teal btn-flat" style="align-content: space-around;">Saved Articles</button></a>
+          <a href="/"><button class="waves-effect waves-teal btn-flat" style="align-content: space-around;">Home</button></a>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="row">
+        <div class="col l12">
+          <div id="articles" style="padding-right: 10px; padding-top: 5px">
+
+            {{#each articles}}
+              <div class="divider"></div>
+                <button data-id={{@index}} class="save-article" style="padding: 5px 10px; float:right">Save</button>  
+                <h4 id="title-{{@index}}"><strong>{{this.title}}</strong></h4>
+                <a href="{{this.link}}" id="link-{{@index}}">{{this.link}}</a> 
+                
+              <div class="divider"></div>
+            {{/each}}
+      
+          </div>
+        </div>
+      </div>
+    </div>

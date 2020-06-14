@@ -1,6 +1,7 @@
 <div class="container">
-  <div class="row text-center">
+  <div class="row text-center indigo darken-4">
     <div class="col l12 m6">
+      <div class="white-text"></div>
       <h3>"{{data.title}}" Notes</h3>
     </div>
   </div>
@@ -11,17 +12,17 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-6">
-      <div class="card mt-4">
+    <div class="col s6">
+      <div class="card indigo darken-4 ">
         <div class="card-body">
-            <form class="">
+            <form class="white-text">
               <div class="form-group">
                 <label for="title-note"><h4>Title</h4></label>
-                <input type="text" id="title-note" class="form-control" aria-describedby="example-text" placeholder="Title of note">
+                <input type="text" id="title-note" class="form-control" aria-describedby="title-text" placeholder="Title of note">
               </div>
               <div class="form-group">
                 <label for="note-description"><h4>Make a note on the article</h4></label>
-                <textarea class="form-control" id="note-description" rows="8" aria-describedby="note-description" placeholder="Your Comment"></textarea>
+                <textarea class="form-control" id="note-description" rows="4" aria-describedby="note-description" placeholder="Your Comment"></textarea>
               </div>
               <br>
               <button id="submit-note" data-id={{data._id}} style="padding: 5px 10px; float:right">Submit</button>
@@ -29,7 +30,7 @@
         </div>
       </div>
     </div>
-    <div class="col-xs-6">
+    <div class="col s6">
         <h4>Previous Comments</h4>
           {{#if data.note}}
             {{#each data.note}}
@@ -40,7 +41,7 @@
               <hr>
             {{/each}}
           {{else}}
-            <h5>There are no comments on this article.</h5>
+            <h6>There are no comments on this article.</h6>
           {{/if}}
     </div>
   </div>
