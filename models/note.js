@@ -1,13 +1,13 @@
-let mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
-let Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-let NoteSchema = new Schema({
+const NoteSchema = new Schema({
     title: String,
     body: String
 });
 
-let Note = mongoose.model("Note", NoteSchema);
+const Note = mongoose.model("Note", NoteSchema);
 
 //export
 module.exports = Note;

@@ -1,22 +1,22 @@
 //setting the stage
-let express = require("express");
-let bodyParser = require("body-parser");
-let exphbs = require("express-handlebars");
-let mongoose = require("mongoose");
-let logger = require("morgan");
+const express = require("express");
+const bodyParser = require("body-parser");
+const exphbs = require("express-handlebars");
+const mongoose = require("mongoose");
+const logger = require("morgan");
 
 //Scraping Tools
-//const request = require("request");
-//const cheerio = require("cheerio");
+//let request = require("request");
+const cheerio = require("cheerio");
 
 //Models
-let db = require("./models/");
+const db = require("./models/");
 
 //set PORT
-let PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
 //initialize Express
-let app = express();
+const app = express();
 
 //Morgan logger for logging requests
 app.use(logger("dev"));
@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 //public folder as a static directory
-app.use(express.static("public"));
+app.use(express.static("views"));
 
 //default template route
 app.engine("handlebars", exphbs({
@@ -39,22 +39,24 @@ app.set("view engine", "handlebars");
 
 
 //mongo and mongoose 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
 //Connect to Mongo DB
-mongoose.Promise = Promise;
+// mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
-let results = [];
+// const results = [];
 
 //Routes
 app.get("/", function (req, res) {
     res.render("index");
 });
 
-var axios = require("axios");
-var cheerio = require("cheerio");
+app.get("/main", function (req, res) {
+    res.render("index");
+});
 
-app.get("./scrape", function (req, res) {
+
+app.get("/scrape", function (req, res) {
     let found;
     let titleArr = [];
     db.Article.find({}).then(function (dbArticle) {
@@ -67,7 +69,7 @@ app.get("./scrape", function (req, res) {
 
             }
         });
-        let $ = cheerio.load(html, {
+        const $ = cheerio.load(html, {
 
         });
 
@@ -80,11 +82,11 @@ app.get("./scrape", function (req, res) {
         found = titleArr.includes(result.title);
         result.link = $(element).children("a").attr("href");
         result.image = $(element).children("storytext").attr("img");
-        if (!found && result.title && result.link) {
+        
             results.push(result);
-        }
+        });
 
-    });
+
     res.render("scrape", {
         articles: results
     });
@@ -94,7 +96,7 @@ app.get("./scrape", function (req, res) {
 app.get("/saved", function (req, res) {
     db.Article.find({}).then(function (dbArticle) {
         console.log(dbArticle);
-        res.render("saved", {
+        res.render("/saved", {
             saved: dbArticle
         });
     }).catch(function (err) {
@@ -104,7 +106,7 @@ app.get("/saved", function (req, res) {
 });
 
 //route creating an Article in the database
-app.post("/api/saved", function (req, res) {
+app.post("/saved", function (req, res) {
     db.Article.create(req.body).then(function (dbArticle) {
         res.json(dbArticle);
     }).catch(function (err) {

@@ -1,8 +1,8 @@
-let mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
-let Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-let articleSchema = new Schema({
+const articleSchema = new Schema({
     title: {
         title: String,
        // require: true
@@ -19,6 +19,6 @@ let articleSchema = new Schema({
     },
 });
 
-let Article = mongoose.model("Article", articleSchema);
+const Article = mongoose.model("Article", articleSchema);
 
 module.exports = Article;
