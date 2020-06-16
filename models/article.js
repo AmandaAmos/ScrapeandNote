@@ -5,12 +5,12 @@ const Schema = mongoose.Schema;
 const articleSchema = new Schema({
     title: {
         title: String,
-       // require: true
+        require: true
        
     },
     link: {
         type: String,
-       // require: true
+        require: true
     },
     
     note: {

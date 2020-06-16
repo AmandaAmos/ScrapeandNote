@@ -69,9 +69,7 @@ app.get("/scrape", function (req, res) {
 
             }
         });
-        const $ = cheerio.load(html, {
-
-        });
+        const $ = cheerio.load(html);
 
     });
     $("main h3").each(function (i, element) {

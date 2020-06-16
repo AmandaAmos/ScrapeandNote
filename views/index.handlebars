@@ -1,21 +1,44 @@
-<div >
-{{>header}}
-  <div id="container text-center" style="margin-left:15px">
-    <div class="row text-center">
-      <div class="col-xs-12">
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scrape and Note</title>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="/public/css/scrape.css">
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="./public/app.js"></script>
+
+</head>
+
+<body id="indexbody">
+  
+  <div class="container">
+    {{>header}}
+    <div class="row">
+      <div class="col-xs-12" style="text-justify: auto;">
+
         <h1><strong>Scrape NPR.org</NPR></strong></h1>
       </div>
     </div>
-    
-    <div class="divider"></div>
-    <div class="row">
-      
-        <img src="public\css\images\news-1172463_1280.jpg">
-        
-        
-      
-    </div>
-  </div>
 
- {{>footer}}
-</div>
+    <div class="divider"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12" style="text-justify: auto;">
+
+          <h4> Welcome to your repository of the latest NPR articles.</h4>
+          <div class="divider"></div>
+          <h6>Click on the Scrape Articles button to gather the latest articles. Save them to the Saved Articles page.
+            And add your notes for later reference for individual articles</h6>
+        </div>
+
+      </div>
+    </div>
+
+      {{>footer}}
+</body>
+
+</html>
